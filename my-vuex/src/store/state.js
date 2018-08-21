@@ -1,8 +1,10 @@
 export default {
     user: {
-        name: 'Denis sales',
-        email: 'denis@hotmail.com',
-        level:'admin'
+        name: '',
+        email: '',
+        level:'',
+        city: '',
+        state: ''
     },
-    token: 'sfsgssafafagg',
+    token: '',
 }

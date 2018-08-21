@@ -1,6 +1,7 @@
 <template>
     <div>
         Email: {{email}}
+        <p>Localidade: {{localidade}}</p>
         <ss-button></ss-button>
     </div>
 </template>
@@ -15,6 +16,9 @@ export default {
     computed: {
         email(){
             return this.$store.state.user.email
+        },
+        localidade(){
+            return this.$store.getters.localidade
         }
     }
 }

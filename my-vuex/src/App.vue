@@ -7,21 +7,43 @@
 </template>
 
 <script>
-import SsUsers from './components/users/main.vue'
+import SsUsers from "./components/users/main.vue";
+import { mapState, mapActions } from "vuex";
+
 export default {
-  name: 'DenisApp',
+  name: "DenisApp",
+  mounted() {
+    const payload = {
+      name: "Denis sales",
+      email: "denis@hotmail.com",
+      level: "admin",
+      city: "Osasco",
+      state: "SP",
+    };
+    setTimeout(() => {
+      this.changeUser(payload);
+    }, 3000);
+  },
   components: {
-    SsUsers,
+    SsUsers
+  },
+  methods: {
+    ...mapActions(["changeUser"])
   },
   computed: {
-    user(){
-      const {name, email} = this.$store.state.user;
-      return `O usuario logado é ${name} e possui o email ${email}`
-    }
+    ...mapState({
+      user: state => {
+        const { name, email } = state.user;
+        return `O usuario logado é ${name} e possui o email ${email}`;
+      }
+    })
+    // user() {
+    //   const { name, email } = this.$store.state.user;
+    //   return `O usuario logado é ${name} e possui o email ${email}`;
+    // }
   }
-}
+};
 </script>
   
 <style>
-
 </style>
